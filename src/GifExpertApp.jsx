@@ -7,6 +7,9 @@ export const GifExpertApp = () => {
   const [categories, setCategories] = useState(['one punch', 'dragon ball'])
 
   const onAddCategory = (value) => {
+
+    // de esta manera podemos evaluar que si existe en el array se salga de funcion
+    if (categories.includes(value)) return
     setCategories([value, ...categories])
   }
 
@@ -22,8 +25,8 @@ export const GifExpertApp = () => {
       <button onClick={onAddCategory}>Agregar</button>
 
       <ol>
-        {categories.map((item, index) => (
-          <li key={index}>{item}</li>
+        {categories.map((item) => (
+          <li key={item}>{item}</li>
         ))}
       </ol>
       {/* Git Item */}
